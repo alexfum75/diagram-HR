@@ -121,12 +121,15 @@ if __name__ == "__main__":
     # https://itu.physics.uiowa.edu/labs/advanced/photometry-globular-cluster/part-2-finding-temperature-and-spectral-type
     fig, ax = plt.subplots(figsize=(8, 10))
     df['T'] = 4600 * (1 / (0.92 * df['B-V'] + 1.7)) + 1700 * (1 / (0.92 * df['B-V'] + 0.62))
+    plt3.style.use('dark_background')
     plt3.scatter(np.log10(df['T']), df['M_V'], s=2, edgecolors='none', alpha=0.3)
     ax.set_xlim(max(np.log10(df['T']) - 0.1), min(np.log10(df['T'])) + 0.25)
     ax.set_ylim(max(df['M_V']), min(df['M_V'])-1)
-    plt3.title("H-R Diagram", fontsize=14)
-    plt3.ylabel("Absolute Magnitude", fontsize=14)
-    plt3.xlabel("Temperature (log(K))", fontsize=14)
+    ax.set_title('aaa')
+    ax.xaxis.label.set_color('white')
+    plt3.title("H-R Diagram", fontsize=14, color='white')
+    plt3.ylabel("Absolute Magnitude",  fontsize=14)
+    #plt3.xlabel("Temperature (log(K))", fontsize=14)
     ax.grid()
     plt3.show()
 
